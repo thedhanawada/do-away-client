@@ -1,5 +1,23 @@
 <template>
   <section>
+    <Modal v-if="isModalActive" @onclose="hideModal">
+      <h3 class="title is-3">Info</h3>
+      <ul>
+        <li>
+          <a href>Docs URL</a>
+        </li>
+         <li>
+          <a href>GitHub Repo</a>
+        </li>
+      </ul>
+      <br />
+      <h3 class="title is-3">Other Tools</h3>
+      <ul>
+        <li>
+          <a href="https://revealurl.xyz">Reveal URL</a>
+        </li>
+      </ul>
+    </Modal>
     <nav>
       <div class="nav-top">
         <router-link to="/">
@@ -9,36 +27,51 @@
         </router-link>
       </div>
       <div class="nav-bottom">
-        <router-link to="/">
-          <ion-icon name="information-circle-outline" size="large" class="has-text-dark"></ion-icon>
-        </router-link>
-        <router-link to="/">
-          <ion-icon name="code-working" size="large" class="has-text-dark"></ion-icon>
-        </router-link>
+        <li  @click="showModal">
+          <ion-icon name="ios-information-circle-outline" size="large" class="has-text-dark"></ion-icon>
+        </li>
       </div>
     </nav>
 
     <div class="inbox_body">
       <div class="email_list">
         <slot name="email_list">
-          <p> Send an email to <strong>{{$route.params.email}}@doaway.email</strong> to see the mails here</p>
+          <p>
+            Send an email to
+            <strong>{{$route.params.email}}@doaway.email</strong> to see the mails here
+          </p>
         </slot>
       </div>
       <div class="email_view">
         <slot name="email_view">
-            <Empty/>
+          <Empty />
         </slot>
       </div>
     </div>
   </section>
 </template>
 <script>
-import Empty from '../ui/Empty';
+import Empty from "../ui/Empty";
+import Modal from "../ui/Modal";
 
 export default {
   name: "inboxLayout",
+  data() {
+    return {
+      isModalActive: false
+    };
+  },
   components: {
-    Empty
+    Empty,
+    Modal
+  },
+  methods: {
+    showModal() {
+      this.isModalActive = true;
+    },
+    hideModal() {
+      this.isModalActive = false;
+    }
   }
 };
 </script>
@@ -98,5 +131,9 @@ nav {
 .icon {
   width: 40px;
   height: 40px;
+}
+
+li {
+  list-style: none;
 }
 </style>

@@ -1,5 +1,23 @@
 <template>
   <main>
+    <Modal v-if="isModalActive" @onclose="hideModal">
+      <h3 class="title is-3">Info</h3>
+      <ul>
+         <li>
+          <a href>Docs URl</a>
+        </li>
+        <li>
+          <a href>GitHub Repo</a>
+        </li>
+      </ul>
+      <br />
+      <h3 class="title is-3">Other Tools</h3>
+      <ul>
+        <li>
+          <a href="https://revealurl.xyz">Reveal URL</a>
+        </li>
+      </ul>
+    </Modal>
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <router-link to="/" class="navbar-item">
@@ -10,17 +28,12 @@
             height="28"
           />
         </router-link>
-
-     
       </div>
-         <div class="navbar-end">
-          <router-link to="/" class="navbar-item">
-            <ion-icon name="ios-information-circle-outline" size="large" class="has-text-dark"></ion-icon>
-          </router-link>
-          <router-link to="/" class="navbar-item">
-            <ion-icon name="ios-code-working" size="large" class="has-text-dark"></ion-icon>
-          </router-link>
-        </div>
+      <ul class="navbar-end">
+        <li class="navbar-item" @click="showModal">
+          <ion-icon name="ios-information-circle-outline" size="large" class="has-text-dark"></ion-icon>
+        </li>
+      </ul>
     </nav>
     <div class="cta-section">
       <div class="existing" v-if="existingBuckets">
@@ -44,30 +57,123 @@
             placeholder="Bucket name"
             required
           />
-          <button
-            type="submit"
-            class="button is-fullwidth is-small"
-            :class="{'is-loading' : isLoading}"
-          >Create Bucket</button>
+          <button type="submit" class="button is-fullwidth is-small">Create Bucket</button>
         </form>
       </div>
     </div>
 
     <div class="faq--wrapper">
-      <h1 class="title">What is <span class="has-text-primary">DO</span>AWAY</h1>
+      <div class="columns">
+        <div class="column">
+          <h1 class="title is-1">
+            What is
+            <span class="has-text-primary">DO</span>AWAY
+          </h1>
+          <p>DOAWAY is a not a tool with disposable email domains. All the emails are sent to a single domain(doaway.email) which is verified and totally safe to use.</p>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="columns">
+        <div class="column">
+          <h3 class="title is-3">
+            What is
+            <span class="has-text-primary">DO</span>AWAY then?
+          </h3>
+          <p>doaway is a simple email recording application which can be used for a variety of use cases. Change your email to a doaway email and you will be inspect all the emails sent.</p>
+        </div>
+
+        <div class="column">
+          <h3 class="title is-3">
+            Why did you
+            <span class="has-text-primary has-text-weight-bold">BUILD</span> this?
+          </h3>
+          <p>I work a lot on testing an application which sends out bulk emails and wanted to write automated tests which could verify the personalised templates sent. Every other tool was a bit complex and unfit for my use case and hence we built this.</p>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="columns">
+        <div class="column">
+          <h3 class="title is-3">
+            What are the
+            <span class="has-text-primary has-text-weight-bold">USE CASES</span> ?
+          </h3>
+          <p>A couple of use cases I could think of while building this. You can use doaway to</p>
+          <ul>
+            <li>
+              <span class="has-text-primary has-text-weight-bold">BEAT</span> spam.
+            </li>
+            <li>
+              <span class="has-text-primary has-text-weight-bold">Write complete automated UI tests</span> with Capybara, Ghost Inspector, Selenium etc and verify if the emails are sending properly or the content of your email template.
+            </li>
+            <li>
+              <span class="has-text-primary has-text-weight-bold">Check the deliverability</span> of your email with our spam score.
+            </li>
+            <li>
+              <span class="has-text-primary has-text-weight-bold">Benchmark</span> by checking the First and Last received emails timestamps.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="columns">
+        <div class="column">
+          <h3 class="title is-3">
+            How does it
+            <span class="has-text-primary has-text-weight-bold">WORK</span>?
+          </h3>
+          <p>
+            Simple! Just create a bucket and start sending emails to your `bucketname`@doaway.email, give the mail servers a couple of seconds to deliver your email and hit the refresh button on the inbox page.
+            Looking to write automated tests or validate spam using our service, please check out our API documentation.
+          </p>
+        </div>
+
+        <div class="column">
+          <h3 class="title is-3">
+            Can I use this for something
+            <span class="has-text-primary has-text-weight-bold">IMPORTANT</span>?
+          </h3>
+          <p>Sure, just don’t use it for private or confidential information or for a nuclear power plant or anything like that. I’m using it in a lot of places, and I don’t want it to break. So go for it! And if this doesn't sound like an SLA, that's because it isn't.</p>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="columns">
+        <div class="column">
+          <h3 class="title is-3">
+            What about
+            <span class="has-text-primary has-text-weight-bold">PRIVACY</span>?
+          </h3>
+          <p>
+            Good question. The created buckets are valid for 1 hour from the point they were created. We also use cookies for the same.
+            Any email sent to our service is publicly accessible by everyone provided they know your bucket name. Also, we do not any store any emails in our database. All the emails sent are stored for 5 minutes from the point they were received by our service and auto destroyed afterwards making them inaccessible.
+          </p>
+        </div>
+
+        <div class="column">
+          <h3 class="title is-3">I’m not receiving emails?</h3>
+          <p>Don’t blame it on us. As long as the email servers deliver emails to us, you should be able to see it too.</p>
+        </div>
+      </div>
     </div>
   </main>
 </template>
 <script>
 /* eslint-disable */
 import apiCall from "../../utils/apiCall";
+import Modal from "../ui/Modal";
 
 export default {
   name: "LandingPage",
   data() {
     return {
-      isLoading: false
+      isModalActive: false
     };
+  },
+  components: {
+    Modal
   },
   computed: {
     existingBuckets() {
@@ -80,9 +186,14 @@ export default {
     }
   },
   methods: {
+    showModal() {
+      this.isModalActive = true;
+    },
+    hideModal() {
+      this.isModalActive = false;
+    },
     createBucket(event) {
       event.preventDefault();
-      this.isLoading = true;
 
       /** TODO
        * Handle sanity of the input
@@ -131,7 +242,7 @@ export default {
           }
         },
         err => {
-          // If any unknown errors, Sentry them and show notification
+          // TODO: If any unknown errors, Sentry them and show notification
           notificationMeta.type = "error";
           notificationMeta.title = "Err..!!";
           notificationMeta.text =
@@ -141,9 +252,6 @@ export default {
           // TODO: Log the err
         }
       );
-
-      // resetting the button state
-      this.isLoading = false;
     },
     loadSelectedBucket(event) {
       this.$router.push({ path: `inbox/${event.target.value}/` });
@@ -181,6 +289,10 @@ form > * {
 .faq--wrapper {
   margin-top: 40px;
   padding: 0px 40px;
+}
+
+.columns {
+  margin: 60px 0px;
 }
 </style>
 

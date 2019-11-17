@@ -1,4 +1,4 @@
-:root{
+:root {
   --primary-color: #8DCCC4;
   --secondary-color: #F6EACE;
   --success-color: #AABAA7;
@@ -33,7 +33,16 @@
 }
 
 /* Style overrides */
-p, .title {
+ul {
+  list-style: square;
+}
+
+li > a {
+  color: var(--dark-color)
+}
+
+p,
+.title {
   color: var(--text-color) !important;
 }
 
@@ -64,9 +73,11 @@ hr {
   background-color: var(--primary-color) !important;
   border: none;
   display: block;
-  height: 200px !important;;
+  height: 200px !important;
+  ;
   margin: 1.5rem 0;
-  width: 2px !important;;
+  width: 2px !important;
+  ;
 }
 
 /* ASSETS */
@@ -79,4 +90,22 @@ hr {
 
 .logo-short {
   background-image: url('../assets/icons/logo_short.svg');
+}
+
+/* MQ */
+#no-support {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--primary-color);
+}
+
+@media only screen and (max-width: 768px){
+  #app {
+    display: none;
+  }
+  #no-support {
+    display: block;
+  }
+  
 }
