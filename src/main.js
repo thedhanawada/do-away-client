@@ -10,7 +10,7 @@ Vue.use(VueRouter);
 Vue.use(Notifications)
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'hash',
   routes
 });
 
