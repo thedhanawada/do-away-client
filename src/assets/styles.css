@@ -1,0 +1,82 @@
+:root{
+  --primary-color: #8DCCC4;
+  --secondary-color: #F6EACE;
+  --success-color: #AABAA7;
+  --warn-color: #C69464;
+  --error-color: #BD7969;
+  --dark-color: #5a584c;
+}
+
+/* UTILS */
+.has-text-primary {
+  color: var(--primary-color) !important;
+}
+
+.has-text-secondary {
+  color: var(--secondary-color) !important;
+}
+
+.has-text-success {
+  color: var(--success-color) !important;
+}
+
+.has-text-warn {
+  color: var(--warn-color) !important;
+}
+
+.has-text-error {
+  color: var(--error-color) !important;
+}
+
+.has-text-dark {
+  color: var(--dark-color) !important;
+}
+
+/* Style overrides */
+p, .title {
+  color: var(--text-color) !important;
+}
+
+select,
+input,
+button {
+  background-color: transparent !important;
+  border: 2px solid var(--dark-color) !important;
+}
+
+.select:not(.is-multiple):not(.is-loading)::after {
+  border-color: var(--primary-color) !important;
+}
+
+input:hover,
+input:focus,
+select:focus,
+button:hover,
+button:focus {
+  border: 2px solid var(--primary-color) !important;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--primary-color) !important;
+}
+
+hr {
+  background-color: var(--primary-color) !important;
+  border: none;
+  display: block;
+  height: 200px !important;;
+  margin: 1.5rem 0;
+  width: 2px !important;;
+}
+
+/* ASSETS */
+.logo {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.logo-short {
+  background-image: url('../assets/icons/logo_short.svg');
+}
