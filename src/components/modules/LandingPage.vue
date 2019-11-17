@@ -80,7 +80,7 @@
             What is
             <span class="has-text-primary">DO</span>AWAY then?
           </h3>
-          <p>doaway is a simple email recording application which can be used for a variety of use cases. Change your test email to a doaway email and you will be inspect all the emails sent.</p>
+          <p>doaway is a simple email recording application which can be used for a variety of use cases. Change your test email to a doaway email and you will be able to inspect all the emails sent.</p>
         </div>
 
         <div class="column">
@@ -88,7 +88,7 @@
             Why did you
             <span class="has-text-primary has-text-weight-bold">BUILD</span> this?
           </h3>
-          <p>I work a lot on testing an application which sends out bulk emails and wanted to write automated tests which could verify the personalised templates sent. Every other tool was a bit complex and unfit for my use case and hence we built this.</p>
+          <p>We work a lot on testing an application which sends out bulk emails and wanted to write automated tests which could verify the personalised templates sent. Every other tool was a bit complex and unfit for my use case and hence we built this.</p>
         </div>
       </div>
 
@@ -99,7 +99,7 @@
             What are the
             <span class="has-text-primary has-text-weight-bold">USE CASES</span> ?
           </h3>
-          <p>A couple of use cases I could think of while building this. You can use doaway to</p>
+          <p>A couple of use cases we could think of while building this. You can use doaway to</p>
           <ul>
             <li>
               <span class="has-text-primary has-text-weight-bold">BEAT</span> spam.
