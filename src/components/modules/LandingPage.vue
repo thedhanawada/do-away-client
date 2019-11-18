@@ -4,7 +4,7 @@
       <h3 class="title is-3">Info</h3>
       <ul>
          <li>
-          <a href="https://github.com/Gaurav-Shankar/testbox-email/wiki/doaway.email-API-Documentation">Docs URL</a>
+          <a href="https://github.com/team-underscore/testbox-email/wiki/doaway.email-API-Documentation">Docs URL</a>
         </li>
         <li>
           <a href="https://github.com/team-underscore/">GitHub Repo</a>
@@ -111,7 +111,7 @@
               <span class="has-text-primary has-text-weight-bold">BEAT</span> spam.
             </li>
             <li>
-              <span class="has-text-primary has-text-weight-bold"><a href="https://github.com/Gaurav-Shankar/testbox-email/wiki/Writing-Automated-Tests-with-doaway.email.">Write complete automated UI tests</a></span> with Capybara, Ghost Inspector, Selenium etc and verify if the emails are sending properly or the content of your email template.
+              <span class="has-text-primary has-text-weight-bold"><a href="https://github.com/team-underscore/testbox-email/wiki/Writing-Automated-Tests-with-doaway.email.">Write complete automated UI tests</a></span> with Capybara, Ghost Inspector, Selenium etc and verify if the emails are sending properly or the content of your email template.
             </li>
             <li>
               <span class="has-text-primary has-text-weight-bold">Check the deliverability</span> of your email with our spam score.
@@ -132,7 +132,7 @@
           </h3>
           <p>
             Simple! Just create a bucket and start sending emails to your bucketname@doaway.email, give the mail servers a couple of seconds to deliver your email and hit the refresh button on the inbox page.
-            Looking to write automated tests or validate spam using our service, please check out our <a href = "https://github.com/Gaurav-Shankar/testbox-email/wiki/doaway.email-API-Documentation">API documentation.</a>
+            Looking to write automated tests or validate spam using our service, please check out our <a href = "https://github.com/team-underscore/testbox-email/wiki/doaway.email-API-Documentation">API documentation.</a>
           </p>
         </div>
 
