@@ -9,6 +9,12 @@
         <li>
           <a href="https://github.com/team-underscore/">GitHub Repo</a>
         </li>
+        <li>
+          <a
+            href="https://github.com/team-underscore/do-away-client/wiki/COOKIE-POLICY"
+            target="blank"
+          >cookie policy</a>
+        </li>
       </ul>
       <br />
       <h3 class="title is-3">Other Tools</h3>
@@ -133,7 +139,9 @@
         <div class="column">
           <h3 class="title is-3">
             Can I use this for something
-            <span class="has-text-primary has-text-weight-bold">IMPORTANT</span>?
+            <span
+              class="has-text-primary has-text-weight-bold"
+            >IMPORTANT</span>?
           </h3>
           <p>Sure, just don’t use it for private or confidential information or for a nuclear power plant or anything like that. I’m using it in a lot of places, and I don’t want it to break. So go for it! And if this doesn't sound like an SLA, that's because it isn't.</p>
         </div>
@@ -245,8 +253,7 @@ export default {
           // TODO: If any unknown errors, Sentry them and show notification
           notificationMeta.type = "error";
           notificationMeta.title = "Err..!!";
-          notificationMeta.text =
-            "Something happened and we are looking into it.";
+          notificationMeta.text = err;
 
           that.$notify(notificationMeta);
           // TODO: Log the err

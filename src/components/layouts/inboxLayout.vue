@@ -1,37 +1,6 @@
 <template>
   <section>
-    <Modal v-if="isModalActive" @onclose="hideModal">
-      <h3 class="title is-3">Info</h3>
-      <ul>
-        <li>
-          <a href>Docs URL</a>
-        </li>
-         <li>
-          <a href>GitHub Repo</a>
-        </li>
-      </ul>
-      <br />
-      <h3 class="title is-3">Other Tools</h3>
-      <ul>
-        <li>
-          <a href="https://revealurl.xyz">Reveal URL</a>
-        </li>
-      </ul>
-    </Modal>
-    <nav>
-      <div class="nav-top">
-        <router-link to="/">
-          <span class="icon">
-            <i class="logo logo-short"></i>
-          </span>
-        </router-link>
-      </div>
-      <div class="nav-bottom">
-        <li  @click="showModal">
-          <ion-icon name="ios-information-circle-outline" size="large" class="has-text-dark"></ion-icon>
-        </li>
-      </div>
-    </nav>
+    <SideNav />
 
     <div class="inbox_body">
       <div class="email_list">
@@ -52,26 +21,13 @@
 </template>
 <script>
 import Empty from "../ui/Empty";
-import Modal from "../ui/Modal";
+import SideNav from "../ui/SideNav";
 
 export default {
   name: "inboxLayout",
-  data() {
-    return {
-      isModalActive: false
-    };
-  },
   components: {
     Empty,
-    Modal
-  },
-  methods: {
-    showModal() {
-      this.isModalActive = true;
-    },
-    hideModal() {
-      this.isModalActive = false;
-    }
+    SideNav
   }
 };
 </script>
@@ -107,33 +63,5 @@ nav {
   background: #fff;
   height: 100vh;
   border-left: 4px solid var(--primary-color);
-}
-
-nav {
-  padding: 0px 16px;
-}
-
-.nav-top,
-.nav-bottom {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-}
-
-.nav-top {
-  top: 12px;
-}
-
-.nav-bottom {
-  bottom: 12px;
-}
-
-.icon {
-  width: 40px;
-  height: 40px;
-}
-
-li {
-  list-style: none;
 }
 </style>
